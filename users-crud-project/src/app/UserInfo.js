@@ -27,23 +27,34 @@ export class UserInfo extends React.Component {
 
     render() {
         console.log(this.state.myUserInfo);
+        
+        if( !this.state.myUserInfo){
+            
+            return  <p>user detrails page</p>
+        }
+        const {name, email, phone } = this.state.myUserInfo
+                return (
+                     <div class="row">
+                    <div class="col s12 m7">
+                      <div class="card">
+                         
+                        <div class="card-content">
+                            <p>name:{name}</p>
+                          <p> email:{email}</p>
+                          <p>phone:{phone}</p>
+                        </div>
+                        <div class="card-action">
+                           
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                      
 
 
 
-        return <form>
-            <label> Username:
-            <input type="text" value='' onChange='' />
-                <br />
-                <p>{}</p>
-                <br />
-                Email:<input type="text" value='' onChange='' />
-            </label>
-            <br />
-            <p>{}</p>
-            <br />
-            <input type="submit" value="Create" />
 
-        </form>
+        )
     }
 
 }

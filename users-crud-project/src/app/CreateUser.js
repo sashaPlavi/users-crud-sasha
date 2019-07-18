@@ -1,5 +1,6 @@
 import React from 'react';
 import {UsersService} from '../services/UsersService'
+import {Users} from '../app/Users'
 
 export class CreateUser extends React.Component {
     constructor(props) {
@@ -41,7 +42,14 @@ export class CreateUser extends React.Component {
         .then(res => res.json ())
          .then(res => {
             this.setState ({response: res})
+            this.handleResponse()
         })
+    }
+
+    handleResponse(){
+        if(this.state.response){
+            this.props.history.push('/users')
+        }
     }
     
     validateForm() {
@@ -96,6 +104,7 @@ export class CreateUser extends React.Component {
         const { errors } = this.state;
         const {response} = this.state;
         console.log(response);
+         
         
         return (
             <form onSubmit={this.handleSubmit}>

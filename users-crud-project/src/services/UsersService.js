@@ -35,10 +35,26 @@ export class UsersService {
               'Content-Type': 'application/json'
             }
           })
-          
+           }
 
+           static DeleteUser = (id) => {
+            const request = `https://jsonplaceholder.typicode.com/users/delete/${id}`
+            return fetch(request, {
+                method: 'DELETE', // or 'PUT'
+             
+            headers:{
+              'Content-Type': 'application/json'
+            }
+          })
 
-    }
+        
+                .then(response => {console.log(response)})
+                
+                 
+                
+        }
+               
+           
 
 
 }

@@ -9,6 +9,7 @@ export class UserInfo extends React.Component {
             myUserInfo: null
 
         }
+        this.handleDelete = this.handleDelete.bind(this);
     }
     componentDidMount() {
         this.getSingleUser()
@@ -23,6 +24,10 @@ export class UserInfo extends React.Component {
                 })
             })
     }
+    handleDelete(){
+        const id = this.props.match.params.id;
+        UsersService.DeleteUser(id) 
+    }
 
 
     render() {
@@ -34,6 +39,7 @@ export class UserInfo extends React.Component {
         }
         const {name, email, phone } = this.state.myUserInfo
                 return (
+                    <>
                      <div class="row">
                     <div class="col s12 m7">
                       <div class="card">
@@ -49,7 +55,9 @@ export class UserInfo extends React.Component {
                       </div>
                     </div>
                   </div>
-                      
+                  <button onClick={this.handleDelete}>delete</button>
+                      </>
+                  //<input type='button' value='delete' onClick={this.handleDelete} >delete</input>
 
 
 
